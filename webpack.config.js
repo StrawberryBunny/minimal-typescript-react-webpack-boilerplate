@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var combineLoaders = require('webpack-combine-loaders');
 
 module.exports = {
     entry: [
@@ -12,8 +13,14 @@ module.exports = {
             { 
                 test: /\.js$/, 
                 loader: "source-map-loader" 
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                loader: 'typed-css-modules'
             }
         ],
+        
 
         loaders: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
@@ -21,6 +28,22 @@ module.exports = {
                 test: /\.tsx?$/,
                 exclude: /node_modules/, 
                 loader: "ts-loader" 
+            },
+            // CSS
+            {
+                test: /\.css$/,
+                loader: combineLoaders([
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        query: {
+                            modules: true,
+                            localIdentName: '[name]__[local]___[hash:base64:5]'
+                        }
+                    }
+                ])
             }
         ]
     },
@@ -32,8 +55,8 @@ module.exports = {
 
     output: {
         path: __dirname,
-        filename: 'bundle.js',
-        publicPath: '/dist/'
+        filename: './dist/bundle.js',
+        publicPath: '/'
     },
 
     // When importing a module whose path matches one of the following, just

@@ -11,10 +11,15 @@
     "react-dom": "^15.3.2"
   },
   "devDependencies": {
+    "css-loader": "^0.25.0",
     "source-map-loader": "^0.1.5",
+    "style-loader": "^0.13.1",
     "ts-loader": "^0.8.2",
+    "typed-css-modules": "^0.1.13",
+    "typed-css-modules-loader": "0.0.4",
     "typescript": "^2.0.3",
     "webpack": "^1.13.2",
+    "webpack-combine-loaders": "^2.0.0",
     "webpack-dev-server": "^1.16.1"
   }
 }

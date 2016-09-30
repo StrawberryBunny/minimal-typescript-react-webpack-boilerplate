@@ -18,7 +18,7 @@ module.exports = {
                 test: /\.css$/,
                 exclude: /node_modules/,
                 loader: 'typed-css-modules'
-            }
+            }            
         ],
         
 
@@ -70,7 +70,7 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
+        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".css"],
         modulesDirectories: ['node_modules']
     },
 
